@@ -8,7 +8,7 @@ body {
     font-size: 18px;
     /* color: white; */
 
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 h2 {
@@ -16,8 +16,8 @@ h2 {
 }
 
 .headerImg {
-    width: fit-content;
-    object-fit: cover;
+    width: 50%;
+    height: auto;
 }
 
 
@@ -25,7 +25,8 @@ h2 {
 .backround {
     background: -webkit-linear-gradient(left, rgba(240,255,255,1) 2%,rgba(240,255,255,0) 140%);
     padding: 4rem;
-    height: 100%;
+    flex: 1; /* Add this line to make the content stretch to fill the available space */
+    min-height: calc(100vh - 160px);
 }
 
 .main-heading {
@@ -54,7 +55,16 @@ h2 {
 
 /* Footer */
 footer {
-    height: 60px;
+    height: 80px;
+
+    color: gray;
+    background-color: #212529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Add this line to make the footer stick to the bottom */
+    bottom: 0; /* Add this line to position the footer at the bottom */
+    width: 100%; /* Add this line to make the footer full-width */
 }
 footer p {
     color: rgb(172, 172, 172);
@@ -68,6 +78,10 @@ footer p {
     .backround {
         padding: 3rem;
     }
+    .headerImg {
+        width: 75%;
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -76,5 +90,9 @@ footer p {
     }
     .backround {
         padding: 2rem;
+    }
+    .headerImg {
+        width: 100%;
+        height: auto;
     }
 }
