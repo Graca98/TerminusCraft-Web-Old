@@ -1,0 +1,62 @@
+body {
+    background-position: center top;
+    background-image: url(./img/background.png);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Calibri;
+    font-size: 18px;
+    /* color: white; */
+
+    height: 100vh;
+}
+
+
+/* Main */
+.backround {
+    background: -webkit-linear-gradient(left, rgba(240,255,255,1) 2%,rgba(240,255,255,0) 140%);
+    padding: 4rem;
+}
+
+.main-heading {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 6rem;
+    color: #FFDE59;
+}
+
+#btnStore {
+    /* Odstraní underline u store btnu */
+    border-bottom: 0;
+}
+#btnBany:active {
+    /* Nezůstane na Bany btnu underline když otevře new tab */
+    border-bottom: 0;
+
+}
+
+/* Footer */
+footer {
+    height: 60px;
+}
+footer p {
+    color: rgb(172, 172, 172);
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .main-heading {
+        font-size: 4rem;
+    }
+    .backround {
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-heading {
+        font-size: 3rem;
+    }
+    .backround {
+        padding: 2rem;
+    }
+}
