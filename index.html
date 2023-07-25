@@ -3,24 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Minecraft SkyBlock and Survival server">
+    <meta name="keywords" content="TerminusCraft,TCraft,Minecraft,Skyblock,Survival,Eventy,Minihry,tcraft.eu,tcraft eu,terminus craft,tcraft,tcrafteu,minecraft,skyblock, skyblock server, minecraft server, minecraft skyblock">
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>Terminus</title>
 </head>
 <body>
     <!--. Header -->
     <header>
-      <div class="d-flex justify-content-center">
+      <div class="container d-flex justify-content-center">
         <h1 class="main-heading px-5 py-1 m-0">Terminus Craft</h1>
+        <!-- <img src="./img/header.png" class="headerImg"> -->
       </div>
-        <nav class="nav nav-underline navbar navbar-expand-lg bg-dark px-3 py-4" data-bs-theme="dark">
+        <nav class="nav nav-underline navbar navbar-expand-lg bg-dark px-3 py-4" data-bs-theme="dark" aria-label="breadcrumb">
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="nav col-6 col-md-3 col-lg-auto me-lg-auto flex-column flex-lg-row mt-3 mt-lg-0">
-                    <li><a href="#" class="nav-link px-3 text-white active" aria-current="page">Hlavní stránka</a></li>
+                <!--? Example dropdown -->
+                <!-- <div class="dropdown">
+                  <a href="https://translate.google.cz/?hl=cs&sl=en&tl=cs&text=unshift&op=translate" class="text-white">
+                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Hlavní stránka
+                    </button>
+
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="https://www.google.cz/?hl=cs">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                  </ul>
+                </div> -->
+                <!--? Example split button -->
+                <div class="btn-group mt-3 mt-lg-0">
+                  <button type="button" class="btn btn-dark pe-1">
+                    <a class="nav-link dropdown-item active" href="index.html">Hlavní stránka</a>
+                  </button>
+                  <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="index.html">Informace</a></li>
+                    <li><a class="dropdown-item" id="btnPravidla" href="#">Pravidla</a></li>
+                    <li><a class="dropdown-item" id="btnDownload" href="#">Ke stažení</a></li>
+                    <li><a class="dropdown-item" id="btnKontakt" href="#">Kontakty</a></li>
+                  </ul>
+                </div>
+                <!--? ================================== -->
+                <ul class="nav col-6 col-md-3 col-lg-auto me-lg-auto flex-column flex-lg-row">
+                    <!-- <li><a href="#" class="nav-link px-3 text-white active" aria-current="page">Hlavní stránka</a></li> -->
                     <li><a href="#" class="nav-link px-3 text-white">Servery</a></li>
                     <li><a href="#" class="nav-link px-3 text-white">Admin Team</a></li>
                     <li><a href="#" class="nav-link px-3 text-white">Výhody</a></li>
@@ -41,12 +77,12 @@
               </div>
             </div>
           </nav>
-
     </header>
     
     <!--. Main -->
     <main>
-        <div class="container backround">
+        <!--!! ========== Infromace ========== -->
+        <div class="container backround" id="informace">
           <section>
             <article class="mb-5">
               <h2>Informace</h2>
@@ -92,7 +128,118 @@
             </article>
           </section>
         </div>
+
+        <!--!! ========== Pravidla ========== -->
+        <div class="container backround d-none" id="pravidla">
+          <section>
+            <h2 class="mb-5">Pravidla Serverů</h2>
+            <article class="mb-5">
+              <h4>Pravidla SkyBlock serveru:</h4>
+              <ol>
+                <li>Chovat se slušně, nenadávat, neponižovat, nevyvyšovat se nad ostatní a nespamovat. Do chatu psát pouze česky, slovensky, nebo anglicky.</li>
+                <li>Zákaz projevu nacismu, rasismu, nebo jakékoliv politické, náboženské, či jiné nesnášenlivosti</li>
+                <li>Respektovat Admin-Team! Neodmlouvat, nenadávat, nebýt drzý. Při nevhodném jednání člena AT neprodleně kontaktovat správce! (pozn.: Admini ve svém volném čase pomáhají udržovat server tak, abyste na něm mohli zdarma hrát, berte na ně ohledy)</li>
+                <li>Zákaz cheatování (např.: upravený klient, autoclicker, killaura, textury, scripty, či cokoliv, co vás zvýhodní před ostatními hráči), zákaz zneužívání bugů a exploitů. (Bugy a exploity serveru neprodleně nahlásit správci!)</li>
+                <li>Zákaz jakéhokoliv pokusu o zabití hráče.</li>
+                <li>Zákaz griefování, kradení itemů, nebo podvádění ostatních hráčů a to jakýmkoliv způsobem!</li>
+                <li>Zákaz používání více účtů jedním člověkem.</li>
+                <li>Zákaz sdílení jakékoliv formy reklamy včetně adres jiných minecraft serverů, discord serverů apod.</li>
+                <li>Rozepře mezi lidmi na jednom ostrově Admin-Team neřeší! Každý hráč nese zodpovědnost za toho, koho si na ostrov pozve!</li>
+                <li>Nebýt kretén.</li>
+              </ol>
+              <p>To, že něco není zakázáno, nemusí znamenat, že je to povoleno, orientujte se dle vyšších morálních zásad a nedělejte druhým něco, co by Vám samotným vadilo. Vaše práva a svoboda končí tam, kde omezujete práva, či svobodu druhých!</p>
+            </article>
+
+            <!--? Survival -->
+            <!-- <article class="mb-5">
+              <h4>Pravidla Survival serveru:</h4>
+              <ol>
+                <li>Chovat se slušně, nenadávat, neponižovat, nevyvyšovat se nad ostatní a nespamovat. Do chatu psát pouze česky, slovensky, nebo anglicky.</li>
+                <li>Zákaz projevu nacismu, rasismu, nebo jakékoliv politické, náboženské, či jiné nesnášenlivosti</li>
+                <li>Respektovat Admin-Team! Neodmlouvat, nenadávat, nebýt drzý. Při nevhodném jednání člena AT neprodleně kontaktovat správce! (pozn.: Admini ve svém volném čase pomáhají udržovat server tak, abyste na něm mohli zdarma hrát, berte na ně ohledy)</li>
+                <li>Zákaz cheatování (např.: upravený klient, autoclicker, killaura, textury, scripty, či cokoliv, co vás zvýhodní před ostatními hráči), zákaz zneužívání bugů a exploitů. (Bugy a exploity serveru neprodleně nahlásit správci!)</li>
+                <li>Zákaz jakéhokoliv pokusu o zabití hráče. (Výjimka se vztahuje na Nether, kde je zabíjení povoleno)</li>
+                <li>Zákaz griefování, kradení itemů, nebo podvádění ostatních hráčů a to jakýmkoliv způsobem!</li>
+                <li>Zákaz používání více účtů jedním člověkem.</li>
+                <li>Zákaz sdílení jakékoliv formy reklamy včetně adres jiných minecraft serverů, discord serverů apod.</li>
+                <li>Rozepře mezi lidmi v jedné residenci Admin-Team neřeší! Každý hráč nese zodpovědnost za toho, koho si do residence pozve!</li>
+                <li>Nebýt kretén.</li>
+              </ol>
+              <p>To, že něco není zakázáno, nemusí znamenat, že je to povoleno, orientujte se dle vyšších morálních zásad a nedělejte druhým něco, co by Vám samotným vadilo. Vaše práva a svoboda končí tam, kde omezujete práva, či svobodu druhých!</p>
+            </article> -->
+
+            <article class="mb-5">
+              <h4>Pravidla Discord serveru:</h4>
+              <ol>
+                <li>Chovat se slušně, nenadávat, neponižovat, nevyvyšovat se nad ostatní a nespamovat. Do chatu psát pouze česky, slovensky, nebo anglicky.</li>
+                <li>Zákaz projevu nacismu, rasismu, nebo jakékoliv politické, náboženské, či jiné nesnášenlivosti.</li>
+                <li>Respektovat Admin-Team! Neodmlouvat, nenadávat, nebýt drzý. Při nevhodném jednání člena AT neprodleně kontaktovat správce! (pozn.: Admini ve svém volném čase pomáhají udržovat server tak, abyste na něm mohli zdarma hrát, berte na ně ohledy)</li>
+                <li>Zákaz používání více účtů jedním člověkem.</li>
+                <li>Zákaz pokusu o podvádění ostatních hráčů a to jakýmkoliv způsobem!</li>
+                <li>Zákaz vydávání se za někoho jiného!</li>
+              </ol>
+            </article>
+
+            <article>
+              <h3>Plné znění</h3>
+              <p>Plné znění pravidel v platnosti od 14.4. 2020 ke stažení zde:</p>
+              <ul class="download p-0">
+                <a href="download/tcraft_pravidla.pdf" target="_blank"> <!--!! Doplnit link!! -->
+                  <li class="badge bg-warning rounded-5 p-3"><img src="img/RulesIco.png" alt="Windows download"></li>
+                </a>	
+              </ul>
+            </article>
+          </section>
+        </div>
           
+        <!--!! ========== Ke Stažení ========== -->
+        <div class="container backround d-none" id="download">
+          <section>
+            <h2 class="mb-5">Ke stažení</h2>
+            <article class="mb-5">
+              <h3>SlimeFun Texture Pack</h3>
+              <p>SlimeFun Texture Pack je resource pack, který odlišuje itemy ze slimefunu a dává jim nový vzhled, tudíž si je již nebudete plést s ostatními ze základní hry!</p>
+              <p>Navod k instalaci (aktuálně na verzi 1.18.1):</p>
+              <ol>
+                <li>Nejprve nainstalujte <a href="https://optifine.net/downloads" target="_blank">Optifine</a> na Vaši verzi Minecraftu.</li>
+                <li>Stahněte soubor s příponou .zip a nakopírujte jej do adresáře se hrou do složky resourcepacks. (Defaultní cesta: C:\Users\"username"\AppData\Roaming\.minecraft\resourcepacks)</li>
+                <li>Nakonec v nastavení minecraftu resourcepack aktivujete.</li>
+              </ol>
+              <ul class="download">
+                <a href="download/Slimefun_Texture_v3.1.1.zip" target="_blank"> <!--!! Doplnit link!! -->
+                  <li class="badge bg-warning rounded-5 p-3"><img src="img/SFIco.png" alt="Windows download"></li>
+                </a>
+              </ul>
+            </article>
+
+            <article class="mb-5">
+              <h3>Plné znění</h3>
+              <p>Plné znění pravidel v platnosti od 14.4. 2020 ke stažení zde:</p>
+              <ul class="download">
+                <a href="download/tcraft_pravidla.pdf" target="_blank"> <!--!! Doplnit link!! -->
+                  <li class="badge bg-warning rounded-5 p-3"><img src="img/RulesIco.png" alt="Windows download"></li>
+                </a>	
+              </ul>
+            </article>
+          </section>
+        </div>
+
+        <!--!! ========== Kontakty ========== -->
+        <div class="container backround d-none" id="kontakt">
+          <section>
+            <article>
+              <h2>Kontakty</h2>
+              <p class="m-0">Facebook: <a href="http://fb.com/tcrafteu" target="_blank">http://fb.com/tcrafteu</a></p>
+              <p>Email: Davisiiiik@tcraft.eu</p>
+            </article>
+
+            <article>
+              <h2>Discord</h2>
+              <iframe src="https://discord.com/widget?id=549321723644870666&amp;theme=dark" width="350" height="700" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </article>
+          </section>
+        </div>
+
     </main>
 
     <!--. Footer -->
@@ -102,23 +249,6 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">  
     </script>
-    <script>
-      // Pro funkčnost Popovers
-      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-
-      // Zkopíruje text buttonu
-      function copyIp() {
-        let copyIp = document.getElementById("serverIP");
-        navigator.clipboard.writeText(copyIp.innerText)
-        // Popover zmizí za 5s
-        setTimeout(function() {
-          const popover = bootstrap.Popover.getInstance(copyIp);
-          if (popover) {
-            popover.hide();
-          }
-        }, 5000);
-      }
-    </script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
