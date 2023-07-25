@@ -11,17 +11,31 @@ body {
     height: 100vh;
 }
 
+h2 {
+    font-weight: bold;
+}
+
+.headerImg {
+    width: fit-content;
+    object-fit: cover;
+}
+
 
 /* Main */
 .backround {
     background: -webkit-linear-gradient(left, rgba(240,255,255,1) 2%,rgba(240,255,255,0) 140%);
     padding: 4rem;
+    height: 100%;
 }
 
 .main-heading {
     background-color: rgba(0, 0, 0, 0.4);
     font-size: 6rem;
     color: #FFDE59;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 #btnStore {
@@ -31,7 +45,11 @@ body {
 #btnBany:active {
     /* Nezůstane na Bany btnu underline když otevře new tab */
     border-bottom: 0;
+}
 
+.download li img {
+    height: 50px;
+    width: 50px;
 }
 
 /* Footer */
