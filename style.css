@@ -55,14 +55,14 @@ h2 {
 
 /* Footer */
 footer {
-    height: 80px;
+    height: 3rem;
 
     color: gray;
     background-color: #212529;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Add this line to make the footer stick to the bottom */
+    /*position: fixed;  Add this line to make the footer stick to the bottom */
     bottom: 0; /* Add this line to position the footer at the bottom */
     width: 100%; /* Add this line to make the footer full-width */
 }
@@ -70,6 +70,13 @@ footer p {
     color: rgb(172, 172, 172);
     margin: 0;
 }
+
+@media screen and (min-width: 1200px) {
+    .stylovani {
+      max-width: 1400px;
+      margin: auto;
+    }
+  }
 
 @media screen and (max-width: 768px) {
     .main-heading {
