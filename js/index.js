@@ -31,8 +31,9 @@ function copyIp() {
 
 
 
+
 $(document).ready(function(){
-    $('#btnInfo,.btnInfo').click(function(e){
+    $('#btnInformace,.btnInfo').click(function(e){
       $("#pravidla,#download,#kontakt").addClass("d-none")
       $("#informace").removeClass("d-none")
     })
