@@ -19,6 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>Terminus</title>
   </head>
+
   <body>
     <!--. Header -->
     <header>
@@ -27,13 +28,14 @@
       <img src="./img/header.png" class="headerImg py-3 px-4" />
       <!-- </div> -->
       <nav
-        class="nav nav-underline navbar navbar-expand-lg bg-dark px-3 py-4"
+        class="nav nav-underline navbar navbar-expand-lg bg-dark px-3 py-3"
         data-bs-theme="dark"
         aria-label="breadcrumb"
       >
         <div class="container-fluid">
           <button
             class="navbar-toggler"
+            id="nav-btn-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo01"
@@ -44,182 +46,175 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <!--? Example dropdown -->
-            <!-- <div class="dropdown">
-                  <a href="https://translate.google.cz/?hl=cs&sl=en&tl=cs&text=unshift&op=translate" class="text-white">
-                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      Hlavní stránka
-                    </button>
-
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="https://www.google.cz/?hl=cs">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                  </ul>
-                </div> -->
-            <!--? Hlavní stránka -->
-            <div class="btn-group mt-3 mt-lg-0">
-              <button type="button" class="btn btn-dark pe-1">
-                <a
-                  class="nav-link dropdown-item active"
-                  aria-current="page"
-                  href="index.html"
-                  >Hlavní stránka</a
-                >
-              </button>
-              <button
-                type="button"
-                class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="index.html">Informace</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" id="btnPravidla" href="#"
-                    >Pravidla</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" id="btnDownload" href="#"
-                    >Ke stažení</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" id="btnKontakt" href="#">Kontakty</a>
-                </li>
-              </ul>
-            </div>
-            <!--? Servery -->
-            <div class="btn-group mt-3 mt-lg-0">
-              <button type="button" class="btn btn-dark pe-1">
-                <a class="nav-link dropdown-item text-white" href="servers.html"
-                  >Servery</a
-                >
-              </button>
-              <button
-                type="button"
-                class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="servers.html"
-                    >Jak se připojit</a
-                  >
-                </li>
-                <li><a class="dropdown-item" href="#">Skyblock</a></li>
-                <li><a class="dropdown-item disabled" href="#">Survival</a></li>
-              </ul>
-            </div>
-            <!--? Admin Team -->
-            <div class="btn-group mt-3 mt-lg-0">
-              <button type="button" class="btn btn-dark pe-1">
-                <a class="nav-link dropdown-item text-white" href="ateam.html"
-                  >Admin Team</a
-                >
-              </button>
-              <button
-                type="button"
-                class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="ateam.html">TCraft Vedení</a>
-                </li>
-                <li><a class="dropdown-item" href="#">Skyblock Team</a></li>
-                <li><a class="dropdown-item" href="#">Event Team</a></li>
-                <li><a class="dropdown-item" href="#">Builder Team</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Speciální poděkování</a>
-                </li>
-              </ul>
-            </div>
-            <!--? Výhody-->
-            <div class="btn-group mt-3 mt-lg-0">
-              <button type="button" class="btn btn-dark pe-1">
-                <a class="nav-link dropdown-item text-white" href="vip.html"
-                  >Výhody</a
-                >
-              </button>
-              <button
-                type="button"
-                class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="vip.html">Proč kupovat VIP</a>
-                </li>
-                <li><a class="dropdown-item" href="#">Skyblock</a></li>
-                <li><a class="dropdown-item" href="#">Event</a></li>
-                <li><a class="dropdown-item" href="#">Survival</a></li>
-              </ul>
-            </div>
-            <!--? FAQ-->
-            <div class="btn-group mt-3 mt-lg-0">
-              <button type="button" class="btn btn-dark pe-1 disabled">
-                <a class="nav-link dropdown-item text-white" href="faq.html"
-                  >FAQ</a
-                >
-              </button>
-              <button
-                type="button"
-                class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1 disabled"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="faq.html">Skyblock</a></li>
-                <li><a class="dropdown-item" href="#">Event</a></li>
-                <li><a class="dropdown-item" href="#">Survival</a></li>
-              </ul>
-            </div>
-            <!--? ================================== -->
-            <ul
-              class="nav col-6 col-md-3 col-lg-auto me-lg-auto flex-column flex-lg-row"
+            <div
+              class="styleForCollapse col-1 col-lg-auto me-lg-auto"
             >
+              <!--, Hlavní stránka -->
+              <div class="btn-group mt-3 mt-lg-0">
+                <button type="button" class="btn btn-dark myOpacity pe-1">
+                  <a
+                    class="nav-link dropdown-item active btnInfo"
+                    aria-current="page"
+                    href="index.html"
+                    >Hlavní stránka</a
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" id="btnInfo" href="index.html">Informace</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="btnPravidla" href="index.html"
+                      >Pravidla</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="btnDownload" href="index.html"
+                      >Ke stažení</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="btnKontakt" href="index.html"
+                      >Kontakty</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!--, Servery -->
+              <div class="btn-group mt-3 mt-lg-0">
+                <button type="button" class="btn btn-dark pe-1">
+                  <a
+                    class="nav-link dropdown-item text-white"
+                    href="servers.html"
+                    >Servery</a
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="servers.html"
+                      >Jak se připojit</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Skyblock</a></li>
+                  <li>
+                    <a class="dropdown-item disabled" href="#">Survival</a>
+                  </li>
+                </ul>
+              </div>
+              <!--, Admin Team -->
+              <div class="btn-group mt-3 mt-lg-0">
+                <button type="button" class="btn btn-dark pe-1">
+                  <a class="nav-link dropdown-item text-white" href="ateam.html"
+                    >Admin Team</a
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="ateam.html">TCraft Vedení</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Skyblock Team</a></li>
+                  <li><a class="dropdown-item" href="#">Event Team</a></li>
+                  <li><a class="dropdown-item" href="#">Builder Team</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Speciální poděkování</a>
+                  </li>
+                </ul>
+              </div>
+              <!--, Výhody-->
+              <div class="btn-group mt-3 mt-lg-0">
+                <button type="button" class="btn btn-dark pe-1">
+                  <a class="nav-link dropdown-item text-white" href="vip.html"
+                    >Výhody</a
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="vip.html"
+                      >Proč kupovat VIP</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Skyblock</a></li>
+                  <li><a class="dropdown-item" href="#">Event</a></li>
+                  <li><a class="dropdown-item" href="#">Survival</a></li>
+                </ul>
+              </div>
+              <!--, FAQ-->
+              <div class="btn-group mt-3 mt-lg-0">
+                <button type="button" class="btn btn-dark pe-1 disabled">
+                  <a class="nav-link dropdown-item text-white" href="faq.html"
+                    >FAQ</a
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle dropdown-toggle-split ps-1 disabled"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="faq.html">Skyblock</a></li>
+                  <li><a class="dropdown-item" href="#">Event</a></li>
+                  <li><a class="dropdown-item" href="#">Survival</a></li>
+                </ul>
+              </div>
+              <!--, Other ================================== -->
               <!-- <li><a href="#" class="nav-link px-3 text-white active" aria-current="page">Hlavní stránka</a></li> -->
               <!-- <li><a href="#" class="nav-link px-3 text-white">Servery</a></li> -->
               <!-- <li><a href="#" class="nav-link px-3 text-white">Admin Team</a></li> -->
               <!-- <li><a href="#" class="nav-link px-3 text-white">Výhody</a></li> -->
               <!-- <li><a href="#" class="nav-link px-3 text-secondary disabled">FAQ</a></li> -->
-              <li>
+              <button class="btn btn-dark mt-3 mt-lg-0">
                 <a
                   href="https://bans.tcraft.eu/"
                   target="”_blank”"
                   id="btnBany"
-                  class="nav-link px-3 text-white"
+                  class="nav-link text-white"
                   >Bany</a
                 >
-              </li>
+              </button>
               <!-- <li><a href="#" class="nav-link px-3 text-white">Store</a></li> -->
-            </ul>
+            </div>
 
             <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                         <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
                 </form> -->
 
-            <div class="text-end col-3 col-lg-auto d-flex mt-3 mt-lg-0">
-              <button type="button" class="btn btn-success btn-lg p-0">
+            <div class="text-end col-3 col-lg-auto d-flex mt-4 mt-lg-0">
+              <button type="button" class="btn btn-myGreen btn-lg p-0">
                 <a
                   href="https://store.tcraft.eu/"
                   target="”_blank”"
@@ -608,7 +603,7 @@
       </div>
 
       <!--!! ========== Kontakty ========== -->
-      <div class="container-fluid backround d-none mb-5" id="kontakt">
+      <div class="container-fluid backround d-none" id="kontakt">
         <section>
           <article>
             <h2>Kontakty</h2>
