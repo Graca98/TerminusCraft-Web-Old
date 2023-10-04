@@ -21,7 +21,7 @@ h2 {
 }
 
 
-/* Main */
+/*, Main */
 .backround {
     background: -webkit-linear-gradient(left, rgba(240,255,255,1) 2%,rgba(240,255,255,0) 140%);
     padding: 4rem;
@@ -53,7 +53,27 @@ h2 {
     width: 50px;
 }
 
-/* Footer */
+/*, Custom styles */
+.btn-myGreen {
+    /* background-color: #5cbd3f; */
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #5cbd3f;
+    --bs-btn-border-color: #5cbd3f;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #47a12b;
+    --bs-btn-hover-border-color: #3e9623;
+    --bs-btn-focus-shadow-rgb: 60,153,110;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #378a1d;
+    --bs-btn-active-border-color: #13653f;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #144106;
+    --bs-btn-disabled-border-color: #198754;
+}
+
+
+/*, Footer */
 footer {
     height: 3rem;
 

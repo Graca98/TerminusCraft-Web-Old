@@ -15,7 +15,27 @@ function copyIp() {
   }, 5000);
 }
 
+
+
+// const navLinks = document.querySelectorAll('.dropdown-item')
+// const menuToggle = document.getElementById('navbarTogglerDemo01')
+// const navBtnToggler = document.getElementById('nav-btn-toggler')
+// if (navBtnToggler.ariaExpanded === "true") {
+//   const bsCollapse = new bootstrap.Collapse(menuToggle)
+//   navLinks.forEach((l) => {
+//       l.addEventListener('click', () => { bsCollapse.toggle() })
+//   })
+// }
+
+
+
+
+
 $(document).ready(function(){
+    $('#btnInfo,.btnInfo').click(function(e){
+      $("#pravidla,#download,#kontakt").addClass("d-none")
+      $("#informace").removeClass("d-none")
+    })
     $('#btnPravidla').click(function(){
         $("#informace,#download,#kontakt").addClass("d-none")
         $("#pravidla").removeClass("d-none")
@@ -28,7 +48,13 @@ $(document).ready(function(){
         $("#informace,#pravidla,#download").addClass("d-none")
         $("#kontakt").removeClass("d-none")
     })
+
+    // Dropwodn se zavře
+    $('.dropdown-item').on('click', function(){
+      $('.navbar-collapse').collapse('hide');
+    });
 })
+
 
 
 
