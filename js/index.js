@@ -30,30 +30,28 @@ function copyIp() {
 
 
 
+$('#btnInformace,#btnInformaceMain').click(function(e){
+  $("#pravidla,#download,#kontakt").addClass("d-none")
+  $("#informace").removeClass("d-none")
+})
+$('#btnPravidla').click(function(){
+    $("#informace,#download,#kontakt").addClass("d-none")
+    $("#pravidla").removeClass("d-none")
+})
+$('#btnDownload').click(function(){
+    $("#informace,#pravidla,#kontakt").addClass("d-none")
+    $("#download").removeClass("d-none")
+})
+$('#btnKontakt').click(function(){
+    $("#informace,#pravidla,#download").addClass("d-none")
+    $("#kontakt").removeClass("d-none")
+})
 
-
+// Dropwodn se zavře
+$('.dropdown-item').on('click', function(){
+  $('.navbar-collapse').collapse('hide');
+});
 $(document).ready(function(){
-    $('#btnInformace,.btnInfo').click(function(e){
-      $("#pravidla,#download,#kontakt").addClass("d-none")
-      $("#informace").removeClass("d-none")
-    })
-    $('#btnPravidla').click(function(){
-        $("#informace,#download,#kontakt").addClass("d-none")
-        $("#pravidla").removeClass("d-none")
-    })
-    $('#btnDownload').click(function(){
-        $("#informace,#pravidla,#kontakt").addClass("d-none")
-        $("#download").removeClass("d-none")
-    })
-    $('#btnKontakt').click(function(){
-        $("#informace,#pravidla,#download").addClass("d-none")
-        $("#kontakt").removeClass("d-none")
-    })
-
-    // Dropwodn se zavře
-    $('.dropdown-item').on('click', function(){
-      $('.navbar-collapse').collapse('hide');
-    });
 })
 
 
