@@ -30,21 +30,37 @@ function copyIp() {
 
 
 
-$('#btnInformace,#btnInformaceMain').click(function(e){
-  $("#pravidla,#download,#kontakt").addClass("d-none")
-  $("#informace").removeClass("d-none")
-})
-$('#btnPravidla').click(function(){
-    $("#informace,#download,#kontakt").addClass("d-none")
-    $("#pravidla").removeClass("d-none")
-})
-$('#btnDownload').click(function(){
-    $("#informace,#pravidla,#kontakt").addClass("d-none")
-    $("#download").removeClass("d-none")
-})
-$('#btnKontakt').click(function(){
-    $("#informace,#pravidla,#download").addClass("d-none")
-    $("#kontakt").removeClass("d-none")
+// $('#btnInformace,#btnInformaceMain').click(function(e){
+//   $("#pravidla,#download,#kontakt").addClass("d-none")
+//   $("#informace").removeClass("d-none")
+// })
+// $('#btnPravidla').click(function(){
+//     $("#informace,#download,#kontakt").addClass("d-none")
+//     $("#pravidla").removeClass("d-none")
+// })
+// $('#btnDownload').click(function(){
+//     $("#informace,#pravidla,#kontakt").addClass("d-none")
+//     $("#download").removeClass("d-none")
+// })
+// $('#btnKontakt').click(function(){
+//     $("#informace,#pravidla,#download").addClass("d-none")
+//     $("#kontakt").removeClass("d-none")
+// })
+
+
+window.addEventListener("DOMContentLoaded", (e) => {
+  const buttons = ["btnInformace", "btnPravidla", "btnDownload", "btnKontakt"];
+  const sections = ["informace", "pravidla", "download", "kontakt"];
+  
+  buttons.forEach((button, index) => {
+      document.getElementById(button).addEventListener("click", function(e) {
+          sections.forEach((section) => {
+              document.getElementById(section).classList.add("d-none");
+          });
+          document.getElementById(sections[index]).classList.remove("d-none");
+      });
+  });
+
 })
 
 // Dropwodn se zavře
@@ -53,6 +69,19 @@ $('.dropdown-item').on('click', function(){
 });
 $(document).ready(function(){
 })
+
+
+// const buttons = ["btnInformace", "btnInformaceMain", "btnPravidla", "btnDownload", "btnKontakt"];
+// const sections = ["informace", "pravidla", "download", "kontakt"];
+
+// buttons.forEach((button, index) => {
+//     document.getElementById(button).addEventListener("click", function(e) {
+//         sections.forEach((section) => {
+//             document.getElementById(section).classList.add("d-none");
+//         });
+//         document.getElementById(sections[index]).classList.remove("d-none");
+//     });
+// });
 
 
 
