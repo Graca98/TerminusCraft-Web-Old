@@ -1,6 +1,8 @@
 // Pro funkčnost Popovers
-const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+function nactiPopovers() {
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+}
 
 // Zkopíruje text buttonu
 function copyIp() {
@@ -16,91 +18,6 @@ function copyIp() {
 }
 
 
-
-// const navLinks = document.querySelectorAll('.dropdown-item')
-// const menuToggle = document.getElementById('navbarTogglerDemo01')
-// const navBtnToggler = document.getElementById('nav-btn-toggler')
-// if (navBtnToggler.ariaExpanded === "true") {
-//   const bsCollapse = new bootstrap.Collapse(menuToggle)
-//   navLinks.forEach((l) => {
-//       l.addEventListener('click', () => { bsCollapse.toggle() })
-//   })
-// }
-
-
-
-
-// $('#btnInformace,#btnInformaceMain').click(function(e){
-//   $("#pravidla,#download,#kontakt").addClass("d-none")
-//   $("#informace").removeClass("d-none")
-// })
-// $('#btnPravidla').click(function(){
-//     $("#informace,#download,#kontakt").addClass("d-none")
-//     $("#pravidla").removeClass("d-none")
-// })
-// $('#btnDownload').click(function(){
-//     $("#informace,#pravidla,#kontakt").addClass("d-none")
-//     $("#download").removeClass("d-none")
-// })
-// $('#btnKontakt').click(function(){
-//     $("#informace,#pravidla,#download").addClass("d-none")
-//     $("#kontakt").removeClass("d-none")
-// })
-
-
-// window.addEventListener("DOMContentLoaded", (e) => {
-//   const buttons = ["btnInformace", "btnPravidla", "btnDownload", "btnKontakt"];
-//   const sections = ["informace", "pravidla", "download", "kontakt"];
-  
-//   buttons.forEach((button, index) => {
-//       document.getElementById(button).addEventListener("click", function(e) {
-//           sections.forEach((section) => {
-//               document.getElementById(section).classList.add("d-none");
-//           });
-//           document.getElementById(sections[index]).classList.remove("d-none");
-//       });
-//   });
-
-// })
-
-// function nacistPravidla() {
-//   // Načteme obsah stránky 1 pomocí AJAX nebo fetch
-//   fetch('index.html')
-//       .then(response => response.text())
-//       .then(data => {
-//           // Vložíme obsah stránky 1 do divu na stránce 2
-//           document.getElementById('test1').innerHTML = data;
-//       })
-//       .catch(error => {
-//           console.error('Nelze načíst obsah stránky 1:', error);
-//       });
-// }
-
-//* Funkce pro načtení obsahu divu obsahStranky1 ze stránky 1
-// function nacistPravidla() {
-//   // Načteme obsah stránky 1 pomocí AJAX nebo fetch
-//   fetch('hlavni.html')
-//       .then(response => response.text())
-//       .then(data => {
-//           // Vytvoříme dočasný element pro zpracování HTML obsahu
-//           const tempElement = document.createElement('div');
-//           tempElement.innerHTML = data;
-
-//           // Najdeme obsah divu obsahStranky1 a vložíme ho do divu na stránce 2
-//           const obsahDivuStranky1 = tempElement.querySelector('#pravidla');
-//           if (obsahDivuStranky1) {
-//               let div = document.getElementById('obsahStranky')
-//               div.innerHTML = ""
-//               div.innerHTML = obsahDivuStranky1.innerHTML;
-//           } else {
-//               console.error('Div s id "obsahStranky1" nebyl nalezen ve stránce 1.');
-//           }
-//       })
-//       .catch(error => {
-//           console.error('Nelze načíst obsah stránky 1:', error);
-//       });
-// }
-
 // Dropwodn se zavře
 $('.dropdown-item').on('click', function(){
   $('.navbar-collapse').collapse('hide');
@@ -109,10 +26,13 @@ $(document).ready(function(){
 })
 
 
-// Funkce pro načtení obsahu do cílového divu
+const cilovyDiv = document.getElementById('obsahStranky');
+
+//! Funkce pro načtení obsahu z hlavni.html
 function nacistObsah(idDivu) {
   // Najdeme cílový div na této stránce
-  const cilovyDiv = document.getElementById('obsahStranky');
+  // const cilovyDiv = document.getElementById('obsahStranky');
+
   
   // Pokud cílový div existuje, smažeme jeho stávající obsah
   if (cilovyDiv) {
@@ -129,11 +49,12 @@ function nacistObsah(idDivu) {
           // Vytvoříme dočasný element pro zpracování HTML obsahu
           const tempElement = document.createElement('div');
           tempElement.innerHTML = data;
-
+          
           // Najdeme obsah cílového divu ze stránky "index.html" a vložíme ho do cílového divu na této stránce
           const obsahCilevehoDivu = tempElement.querySelector(`#${idDivu}`);
           if (obsahCilevehoDivu) {
-              cilevyDiv.appendChild(obsahCilevehoDivu);
+            cilovyDiv.appendChild(obsahCilevehoDivu);
+            nactiPopovers()
           } else {
               console.error(`Div s id "${idDivu}" nebyl nalezen ve stránce "index.html".`);
           }
@@ -141,27 +62,88 @@ function nacistObsah(idDivu) {
       .catch(error => {
           console.error('Nelze načíst obsah stránky "hlavni.html":', error);
       });
+
+    }
+
+//! Funkce pro načtení obsahu ze servers.html
+function nacistObsahServers(idDivu) {
+  // Najdeme cílový div na této stránce
+  // const cilovyDiv = document.getElementById('obsahStranky');
+  
+  // Pokud cílový div existuje, smažeme jeho stávající obsah
+  if (cilovyDiv) {
+      cilovyDiv.innerHTML = ''; // Vymaže obsah divu
+  } else {
+      console.error('Cílový div nebyl nalezen.');
+      return;
+  }
+
+  // Načteme obsah stránky "index.html" pomocí AJAX nebo fetch
+  fetch('servers.html')
+  .then(response => response.text())
+  .then(data => {
+      // Vytvoříme dočasný element pro zpracování HTML obsahu
+      const tempElement = document.createElement('div');
+      tempElement.innerHTML = data;
+
+      // Najdeme obsah cílového divu ze stránky "index.html" a vložíme ho do cílového divu na této stránce
+      const obsahCilevehoDivu = tempElement.querySelector(`#${idDivu}`);
+      if (obsahCilevehoDivu) {
+        cilovyDiv.appendChild(obsahCilevehoDivu);
+        nactiPopovers()
+      } else {
+          console.error(`Div s id "${idDivu}" nebyl nalezen ve stránce "servers.html".`);
+      }
+  })
+  .catch(error => {
+      console.error('Nelze načíst obsah stránky "servers.html":', error);
+  });   
+}
+
+//! Funkce pro načtení obsahu ze ateam.html
+function nacistObsahATeam(idDivu) {
+  // Najdeme cílový div na této stránce
+  // const cilovyDiv = document.getElementById('obsahStranky');
+  
+  // Pokud cílový div existuje, smažeme jeho stávající obsah
+  if (cilovyDiv) {
+      cilovyDiv.innerHTML = ''; // Vymaže obsah divu
+  } else {
+      console.error('Cílový div nebyl nalezen.');
+      return;
+  }
+
+  // Načteme obsah stránky "index.html" pomocí AJAX nebo fetch
+  fetch('ateam.html')
+  .then(response => response.text())
+  .then(data => {
+      // Vytvoříme dočasný element pro zpracování HTML obsahu
+      const tempElement = document.createElement('div');
+      tempElement.innerHTML = data;
+
+      // Najdeme obsah cílového divu ze stránky "index.html" a vložíme ho do cílového divu na této stránce
+      const obsahCilevehoDivu = tempElement.querySelector(`#${idDivu}`);
+      if (obsahCilevehoDivu) {
+        cilovyDiv.appendChild(obsahCilevehoDivu);
+        nactiPopovers()
+      } else {
+          console.error(`Div s id "${idDivu}" nebyl nalezen ve stránce "ateam.html".`);
+      }
+  })
+  .catch(error => {
+      console.error('Nelze načíst obsah stránky "ateam.html":', error);
+  });   
 }
 
 
+ 
+//* Když je obsahStranky prázdný, načte sekci "informace"
+if (cilovyDiv.innerHTML === "") {
+  nacistObsah("informace")
+}
 
 
-
-
-
-// const buttons = ["btnInformace", "btnInformaceMain", "btnPravidla", "btnDownload", "btnKontakt"];
-// const sections = ["informace", "pravidla", "download", "kontakt"];
-
-// buttons.forEach((button, index) => {
-//     document.getElementById(button).addEventListener("click", function(e) {
-//         sections.forEach((section) => {
-//             document.getElementById(section).classList.add("d-none");
-//         });
-//         document.getElementById(sections[index]).classList.remove("d-none");
-//     });
-// });
-
-//! Dropdowb on hover
+//? Dropdowb on hover
 // $(document).ready(function(){
 //   $('.dropdown').hover(function(){
 //     $(this).find('.dropdown-menu')
@@ -171,3 +153,21 @@ function nacistObsah(idDivu) {
 //     .stop(true, true).delay(100).fadeOut(200);
 //   });
 // });
+
+//? Staré načítání stránek
+// $('#btnInformace,#btnInformaceMain').click(function(e){
+//   $("#pravidla,#download,#kontakt").addClass("d-none")
+//   $("#informace").removeClass("d-none")
+// })
+// $('#btnPravidla').click(function(){
+//     $("#informace,#download,#kontakt").addClass("d-none")
+//     $("#pravidla").removeClass("d-none")
+// })
+// $('#btnDownload').click(function(){
+//     $("#informace,#pravidla,#kontakt").addClass("d-none")
+//     $("#download").removeClass("d-none")
+// })
+// $('#btnKontakt').click(function(){
+//     $("#informace,#pravidla,#download").addClass("d-none")
+//     $("#kontakt").removeClass("d-none")
+// })

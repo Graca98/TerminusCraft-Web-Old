@@ -171,25 +171,96 @@
     <!--. Main -->
     <main>
       <!--!! ========== Infromace ========== -->
-      <div class="container-fluid backround" id="servers">
-            <h2>Přehled všech serverů</h2>
-            <p>
-                <span class="">Typ:</span> Waterfall<br>
-                Stav:<br>
-                Hráčů online: /<br>
-                Verze: 1.20<br>
-                IP: <a
-                role="button"
-                id="serverIP"
-                class="btn btn-outline-dark btn-sm"
-                onclick="copyIp()"
-                data-bs-container="body"
-                data-bs-toggle="popover"
-                data-bs-placement="right"
-                data-bs-content="Zkopírováno do schránky"
-                >play.tcraft.eu</a><br>
+      <div class="" id="servers">
+        <section>
+          <article class="mb-5">
+            <a href="https://czech-craft.eu/server/terminuscraft/" target="_blank">
+              <img class="img-shadow" src="https://czech-craft.eu/api/server/terminuscraft/badges/position.svg" style="float: right" />
+            </a>
+            <h2>Přehled všech serverů</h1>
+            <ul class="list-unstyled">
+              <li>Typ: Waterfall</li>
+              <li>Stav: <span id="status_status"></span></li>
+              <li>IP: play.tcraft.eu</li>
+              <li>Hráčů online: <span id="status_hracu"></span>/<span id="status_slotu"></span></li>
+              <li>Verze: <span id="status_verze"></span></li>
+            </ul>
+          </article>
+  
+          <article class="mb-5">
+            <h2>Jak se připojit a hrát</h1>
+            <p class="mb-0">Jednoduše spusťte Minecraft a v hlavním menu zvolte tlačítko "Multiplayer". Následně dle obrázku zvolte "Add Server".</p>
+            <img class="my-3 img-shadow img-fluid" src="../img/servers/connect0.png" alt="Připojení">
+            <p class="mb-0">
+              Do kolonky Server Name můžete napsat cokoliv dle vlastní volby. Do kolonky Server Address vložte IP adresu serveru.
+              Náše servery běží na forku Waterfall systému BungeeCord, stačí Vám tedy jedna ip adresa, kterou se připojíte do lobby,
+              odkud je dále možné se připojovat na ostatní servery.
+              IP adresa serverů:
+              SkyBlock: play.tcraft.eu
             </p>
-        </div>
+            <img class="my-3 img-shadow img-fluid" src="../img/servers/connect1.png" alt="Připojení">
+            <p class="mb-0">
+              Nyní stačí kliknout na tlačítko "Done" a je hotovo! Můžete se připojit na náš server a do naší skvělé komunity. Uvidíme se tam!
+            </p>
+          </article>
+        </section>
+      </div>
+
+      <!--! dodělat -->
+      <div id="serverSky">
+        <section class="mb-5">
+          <h2>SkyBlock</h2>
+          <p class="mb-3">
+            Skyblock & Slimefun. Potřebuješ vědět více? Jeden z mála kvalitních skyblock serverů čistě na verzi 1.18.1, kde mimo
+            jiné můžete
+            natrefit na spoustu úkolů, nebo plně funkční plugin SlimeFun, který do hry přináší mnoho technických a magických
+            komponentů na
+            téma Feed the Beast. Ekonomika je uvzoana tak, aby nákup v server shopu byl poslední možností, jak suroviny získat,
+            takže s penězi
+            rozvážně. Na serveru najdete možnost hrát až v 5ti lidech na ostrově bez VIP, vyváženou ekonomiku, daňový systém,
+            zkušený admin team
+            a hlavně příjemnou komunitu.
+          </p>
+          <p class="mb-0">
+            Skyblock poskytuje variaci až 6ti různých startovních ostrovů, více než 100 různých úkolů pro Váš ostrov, možnost
+            být až s 11ti
+            dalšími přáteli na jednom ostrově a taky hodiny a hodiny plnohodnotné a nefalšované zabavy! Součástí úkolů je i
+            možnost získání
+            a přepínání mezi zajimavými tituly.
+          </p>
+          <p class="mb-0">
+            Slimefun poskytuje možnost tvorby automatických těžičů, farem, nebo i sofistikovaných dopravních systémů. Nejlepší
+            na pluginu
+            SlimeFun je, že hráči, kteří s ním nechtějí pracovat, jej můžou naprosto vynechat!
+          </p>
+          <img class="my-3 img-shadow img-fluid" src="../img/servers/SkyBlock1.png" alt="SkyBlock Spawn">
+          <img class="my-3 img-shadow img-fluid" src="../img/servers/SkyBlock2.png" alt="SkyBlock Spawn">
+          <p class="mb-0">Spawn by Yuniegard and Wolkerman1</p>
+          <p class="mb-0">Photo by AsmynTexi</p>
+        </section>
+      </div>
+     
+     
+     
+      <div id="serverSur">
+        <section class="mb-5">
+          <h2>Survival</h2>
+          <h3>Survival server je aktuálně mimo provoz!</h3>
+          <p class="mb-0">
+            Klasický economy survival. Láká Tě reálnější ekonomický model? Regulovaný počet peněz v oběhu? Daně? Možná to nezní
+            nejslibněji,
+            ale každý předmět si tak uchová jistou hodnotu a nedochází k inflaci. Přidej k tomu poukazy, které lze prodávat,
+            nebo uplatnit
+            a získat tak VIP/EVIP příkazy, levely apod, nebo výherní automaty. Zkoušíme staré známe věci ale novým způsobem. Dáš
+            nám šanci?
+            Je to jen na Tobě!
+          </p>
+          <img class="my-3 img-shadow img-fluid" src="../img/servers/Survival1.png" alt="Survival Spawn">
+          <img class="my-3 img-shadow img-fluid" src="../img/servers/Survival2.png" alt="Survival Spawn">
+          <p class="mb-0">Spawn by Yuniegard and ScreenShooot</p>
+          <p class="mb-0">Photo by AsmynTexi</p>
+        </section>
+      </div>
 
     <!--. Footer -->
     <footer class="bg-dark py-3 py-md-0">
