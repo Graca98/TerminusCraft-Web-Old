@@ -26,6 +26,37 @@ $(document).ready(function(){
 })
 
 
+//todo Nastavit
+// Přidáme stav do historie prohlížeče a aktualizujeme URL
+function addHistoryState(pageUrl) {
+  window.history.pushState({ url: pageUrl }, "", pageUrl);
+}
+
+// Obsluha události popstate
+window.addEventListener("popstate", function (event) {
+  // Zde můžete zpracovat změnu stavu, například načíst obsah stránky na základě URL v event.state.url
+  const pageUrl = event.state.url;
+  // Načtěte obsah stránky na základě URL
+  nacistHistoryObsah(pageUrl);
+});
+
+// Použijte tuto funkci pro načtení obsahu a aktualizaci historie prohlížeče
+function nacistHistoryObsah(pageUrl) {
+  // Zde načtěte obsah stránky podle URL
+  fetch(pageUrl)
+    .then(response => response.text())
+    .then(data => {
+      const cilovyDiv = document.getElementById('obsahStranky');
+      cilovyDiv.innerHTML = data;
+      // Aktualizujte historii a URL až po úspěšném načtení obsahu
+      addHistoryState(pageUrl);
+    })
+    .catch(error => {
+      console.error('Chyba při načítání obsahu stránky:', error);
+    });
+}
+//todo ========================
+
 const cilovyDiv = document.getElementById('obsahStranky');
 
 //! Funkce pro načtení obsahu z hlavni.html
