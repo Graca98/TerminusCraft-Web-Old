@@ -185,7 +185,8 @@ function nacistObsahATeam(idDivu) {
  
 //* Když je obsahStranky prázdný, načte sekci "informace"
 if (cilovyDiv.innerHTML === "") {
-  nacistObsah("informace")
+  // nacistObsah("informace")
+  nacistObsahATeam('aTeam')
 }
 
 
