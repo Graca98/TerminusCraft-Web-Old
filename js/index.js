@@ -26,6 +26,8 @@ $(document).ready(function(){
 })
 
 
+const cilovyDiv = document.getElementById('obsahStranky');
+
 //todo Nastavit
 // Přidáme stav do historie prohlížeče a aktualizujeme URL
 function addHistoryState(pageUrl) {
@@ -34,19 +36,32 @@ function addHistoryState(pageUrl) {
 
 // Obsluha události popstate
 window.addEventListener("popstate", function (event) {
-  // Zde můžete zpracovat změnu stavu, například načíst obsah stránky na základě URL v event.state.url
-  const pageUrl = event.state.url;
+  if (event && event.state && event.state.url) {
+    const pageUrl = event.state.url;
+    // Pokračujte v kódě, protože event a event.state jsou definované a mají vlastnost 'url'
+  } else {
+    // Zde můžete obsloužit situaci, kdy event nebo event.state nejsou definované nebo mají chybnou strukturu.
+    console.error('Neplatný event nebo event.state');
+  }
+  
   // Načtěte obsah stránky na základě URL
   nacistHistoryObsah(pageUrl);
 });
 
 // Použijte tuto funkci pro načtení obsahu a aktualizaci historie prohlížeče
 function nacistHistoryObsah(pageUrl) {
+
+  // Pokud cílový div existuje, smažeme jeho stávající obsah
+  if (cilovyDiv) {
+    cilovyDiv.innerHTML = ''; // Vymaže obsah divu
+ } else {
+    console.error('Cílový div nebyl nalezen.');
+    return;
+ }
   // Zde načtěte obsah stránky podle URL
   fetch(pageUrl)
     .then(response => response.text())
     .then(data => {
-      const cilovyDiv = document.getElementById('obsahStranky');
       cilovyDiv.innerHTML = data;
       // Aktualizujte historii a URL až po úspěšném načtení obsahu
       addHistoryState(pageUrl);
@@ -57,7 +72,7 @@ function nacistHistoryObsah(pageUrl) {
 }
 //todo ========================
 
-const cilovyDiv = document.getElementById('obsahStranky');
+
 
 //! Funkce pro načtení obsahu z hlavni.html
 function nacistObsah(idDivu) {
