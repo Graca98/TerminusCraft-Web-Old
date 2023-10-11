@@ -1,6 +1,6 @@
 body {
     background-position: center top;
-    background-image: url(./img/background.png);
+    /*! background-image: url(./img/background.png); */
     background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
@@ -72,6 +72,18 @@ h2 {
     --bs-btn-disabled-border-color: #198754;
 }
 
+.img-shadow:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.adminImg {
+    width: 120px;
+    height: 270px;
+    margin: auto;
+}
+
 
 /*, Footer */
 footer {
@@ -86,13 +98,14 @@ footer {
     bottom: 0; /* Add this line to position the footer at the bottom */
     width: 100%; /* Add this line to make the footer full-width */
 }
-footer p {
+footer > p {
     color: rgb(172, 172, 172);
     margin: 0;
+    font-size: 0.9rem;
 }
 
 @media screen and (min-width: 1200px) {
-    .stylovani {
+    .maxSirka {
       max-width: 1400px;
       margin: auto;
     }
@@ -109,6 +122,9 @@ footer p {
         width: 75%;
         height: auto;
     }
+    footer > p {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -121,5 +137,8 @@ footer p {
     .headerImg {
         width: 100%;
         height: auto;
+    }
+    footer > p {
+        font-size: 0.7rem;
     }
 }
